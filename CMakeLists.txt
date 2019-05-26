@@ -16,7 +16,8 @@ find_package(Qt5Core)
 # Create a list with all .cpp source files
 set( project_sources
      main.cpp
-     node.cpp)
+     node.cpp
+     binaryTree.cpp)
 
 # Create executable with all necessary source files
 add_executable(${PROJECT_NAME}

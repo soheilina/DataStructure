@@ -8,7 +8,7 @@ using namespace std;
 class Node
 {
 public:
-    explicit Node();
+    explicit Node(); // HINT: a default constructor can have "explicit" specifier but "explicit" is ignored.
     explicit Node(int input);
     ~Node() = default;
 public:
@@ -18,8 +18,8 @@ public:
     void setRightNode( shared_ptr<Node> parNode);
     // Getters
     int getData() const;
-    shared_ptr<Node> getRightNode() const;
-    shared_ptr<Node> getLeftNode() const;
+    shared_ptr<Node>& getRightNode();
+    shared_ptr<Node>& getLeftNode();
 
 private:
     int data;
