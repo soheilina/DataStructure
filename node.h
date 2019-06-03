@@ -18,8 +18,9 @@ public:
     void setRightNode( shared_ptr<Node> parNode);
     // Getters
     int getData() const;
-    shared_ptr<Node>& getRightNode();
-    shared_ptr<Node>& getLeftNode();
+    shared_ptr<Node>& getRightNode(); // return a reference 'cause binaryTree has funcs accept node& as input.An alternative is to
+    shared_ptr<Node>& getLeftNode();  // remove getter functions and make right and left node public in orther to use them directly in binaryTree funcs
+
 
 private:
     int data;
