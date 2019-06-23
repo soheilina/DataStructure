@@ -20,6 +20,7 @@ set( project_sources
      node.cpp
      binaryTree.cpp
      graph.cpp
+     hashset.cpp
 )
 
 # Create executable with all necessary source files
