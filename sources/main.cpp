@@ -27,12 +27,15 @@ int main(){
     }
     case 2:{
         testBinaryTree();
+        break;
     }
     case 3:{
         testGraph();
+        break;
     }
     case 4:{
         testHashSet();
+        break;
     }
     
     default:
@@ -88,51 +91,7 @@ void testBinaryTree(){
 }
 
 void testGraph(){
-
-    std::initializer_list<string> vList{"v1","v2", "v3", "v4", "v5", "v6", "v7"};
-    std::unique_ptr<Graph> pGraph = std::make_unique<Graph>(vList);
-
-    //pGraph->printAllVertices();
-    pGraph->addEdge("v1", "v2", 3);
-    pGraph->addEdge("v1", "v4", 5);
-    pGraph->addEdge("v1", "v7", 2);
-    pGraph->addEdge("v2", "v3", 6);
-    pGraph->addEdge("v2", "v5", 1);
-    pGraph->addEdge("v3", "v6", 1);
-    pGraph->addEdge("v4", "v7", 6);
-    pGraph->addEdge("v5", "v2", 1);
-    pGraph->addEdge("v5", "v6", 2);
-    pGraph->addEdge("v6", "v3", 2);
-    pGraph->addEdge("v6", "v7", 4);
-    pGraph->addEdge("v7", "v1", 2);
-    pGraph->addEdge("v7", "v4", 6);
-    pGraph->addEdge("v7", "v5", 3);
-
-//    pGraph->getEdges("v1").begin()->second = -3;
-
-//    for(auto& i : pGraph->getNeighbors("v1") ){
-//        cout << "v1 neighbor: " << i.get().first << "!" << endl;
-//        i.get().first = "@";
-//    }
-
-    //pGraph->printAllEdges();
-
-//    for(auto& v : pGraph->getAllVertecies() ){
-//        cout << "v: " << v.get().first << endl;
-//    }
-    pGraph->removeVertex("v5");
-    pGraph->removeEdge("v7","v4");
-
-    pGraph->printAllEdges();
-
-    //TODO: list<pair<string,int>> x = pGraph->getEdges("v11");
-
-    string self{"v2"}, other{"v5"};
-    cout << self << " has " << ( (pGraph->isNeighbor(self, other) == true ) ? "" : "NOT ") << "a neighbor called " << other << endl;
-
-    cout << "its size is: " << pGraph->getSize() << endl;
-
-
+    cout << "Test is empty" << endl;
 }
 
 void testHashSet(){
