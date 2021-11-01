@@ -1,4 +1,4 @@
-#include "hashset.h"
+#include "hashset.hpp"
 
 HashSet::HashSet()
     : capacity(10)

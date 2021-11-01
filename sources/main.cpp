@@ -1,13 +1,16 @@
+#include<vector>
 
-#include "binaryTree.h"
-#include "graph.h"
-#include "hashset.h"
-#include "node.h"
+#include "binaryTree.hpp"
+#include "Graph.hpp"
+#include "hashset.hpp"
+#include "node.hpp"
 
 void testNode( void );
 void testBinaryTree( void );
 void testGraph();
 void testHashSet();
+
+using namespace std;
 
 int main(){
     std::cout << "To test any Design Pattern, please enter its corresponding number." << std::endl;
@@ -97,7 +100,7 @@ void testGraph(){
 void testHashSet(){
 
     shared_ptr<HashSet> ptrHashSet = make_shared<HashSet>();
-    vector<int> inputs = {17, 41, 9, 29, 37, 81, 69, 20, 42, 17};
+    vector<int> inputs{17, 41, 9, 29, 37, 81, 69, 20, 42, 17};
     for(auto&& i : inputs){
         cout << "add " << i << " (before)" << endl;
         ptrHashSet->printStructure();

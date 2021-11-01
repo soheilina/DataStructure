@@ -11,6 +11,16 @@ public:
     explicit Node(); // HINT: a default constructor can have "explicit" specifier but "explicit" is ignored.
     explicit Node(int input);
     ~Node() = default;
+    
+    //copy c'tor
+	Node(const Node&);
+	// move c'tor
+	Node(Node&& rhs) noexcept;
+	
+	// Assignment Operator
+	Node& operator=(Node& rhs);
+	// move assignment operator
+	Node& operator=(Node&& rhs) noexcept;
 public:
     // Setters
     void setData( int parData);
@@ -23,9 +33,9 @@ public:
 
 
 private:
-    int data;
-    shared_ptr<Node> right;
-    shared_ptr<Node> left;
+    int m_data;
+    shared_ptr<Node> m_rightNode;
+    shared_ptr<Node> m_leftNode;
 };
 
 #endif // NODE_H

@@ -4,7 +4,7 @@
 #include <initializer_list>
 #include <string> // to_string
 
-#include "node.h"
+#include "node.hpp"
 
 /// Defines
 #define ptrNode     shared_ptr<Node> // HINT: You can use them! No need to repeat shared_ptr<Node>&!
