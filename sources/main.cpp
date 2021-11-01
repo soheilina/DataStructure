@@ -1,8 +1,8 @@
 
-#include "node.h"
 #include "binaryTree.h"
 #include "graph.h"
 #include "hashset.h"
+#include "node.h"
 
 void testNode( void );
 void testBinaryTree( void );
@@ -10,7 +10,35 @@ void testGraph();
 void testHashSet();
 
 int main(){
-    cout << "done" << endl;
+    std::cout << "To test any Design Pattern, please enter its corresponding number." << std::endl;
+    std::cout << "For Node enter 1\n"
+              << "For BinaryTree enter 2\n"
+              << "For Graph enter 3\n"
+              << "For HashSet enter 4\n"
+              << std::endl;
+    
+    int input{0};
+    std::cin >> input;
+    switch (input)
+    {
+    case 1:{
+        testNode();
+        break;
+    }
+    case 2:{
+        testBinaryTree();
+    }
+    case 3:{
+        testGraph();
+    }
+    case 4:{
+        testHashSet();
+    }
+    
+    default:
+        break;
+    }
+
     return 0;
 }
 
