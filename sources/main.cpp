@@ -1,13 +1,12 @@
-#include "../headers/Graph.hpp"
-#include "../headers/Stack.hpp"
-#include "../headers/Vertex.hpp"
-#include "../headers/binaryTree.hpp"
-#include "../headers/hashset.hpp"
-#include "../headers/node.hpp"
+#include "pch.h" //NOTE: Not necessary when CMake is used. It includes pch to each cpp file.
 
-#include <iostream>
-#include <string>
-#include <vector>
+#include "Graph/Graph.hpp"
+#include "HASH/hashset.hpp"
+#include "Heap/Heap.hpp"
+#include "Node/node.hpp"
+#include "Stack/Stack.hpp"
+#include "Tree/binaryTree.hpp"
+#include "Vertex/Vertex.hpp"
 
 void testNode();
 void testBinaryTree();
@@ -16,17 +15,19 @@ void testVertecies();
 void testGraph();
 void testCylicSharedPtr();
 void testStack();
+void testHeap();
 
 using namespace std;
 
 int main() {
     std::cout << "To test any Design Pattern, please enter its corresponding number." << std::endl;
-    std::cout << "For Node enter 1\n"
-              << "For BinaryTree enter 2\n"
-              << "For HashSet enter 3\n"
-              << "For Vertex enter 4\n"
-              << "For Cylic Shared Pointer enter 5\n"
-              << "For Graph enter 6\n"
+    std::cout << "1 to test Node\n"
+              << "2 to test BinaryTree\n"
+              << "3 to test HashSet\n"
+              << "4 to test Vertex\n"
+              << "5 to test Cylic Shared Pointer\n"
+              << "6 to test Graph\n"
+              << "7 to test Heap\n"
               << std::endl;
 
     int input{0};
@@ -54,6 +55,10 @@ int main() {
     }
     case 6: {
         testGraph();
+        break;
+    }
+    case 7: {
+        testHeap();
         break;
     }
 
@@ -298,4 +303,24 @@ void testStack() {
     std::cout << std::endl;
 
     nodeStack.push(new Node(1));
+}
+
+void testHeap() {
+    Heap h(HEAP_TYPE::MAX);
+    h.insert(5);
+    h.print();
+    h.insert(50);
+    h.print();
+    h.insert(150);
+    h.print();
+    h.insert(0);
+    h.print();
+    h.insert(7);
+    h.print();
+    h.insert(60);
+    h.print();
+    while (h.getSize()) {
+        std::cout << "top: " << h.top() << std::endl;
+        h.print();
+    }
 }

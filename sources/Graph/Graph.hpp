@@ -1,13 +1,7 @@
-#pragma once
+#ifndef _GRAPH_HPP
+#define _GRAPH_HPP
 
-#include <algorithm>
-#include <iostream>
-#include <list>
-#include <memory>
-#include <queue>
-#include <string>
-
-#include "Vertex.hpp"
+#include "../Vertex/Vertex.hpp"
 
 class Graph {
   public:
@@ -53,3 +47,5 @@ class Graph {
     std::list<std::shared_ptr<Vertex>> m_vertices;
     u_int16_t m_DFS_time;
 };
+
+#endif // _GRAPH_HPP

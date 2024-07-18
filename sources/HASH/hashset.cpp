@@ -2,47 +2,43 @@
 
 HashSet::HashSet()
     : capacity(10)
-    , mySize(0)
-{
-    elements = new HashNode* [10]();
+    , mySize(0) {
+    elements = new HashNode*[10]();
 }
 
-HashSet::~HashSet(){
-    delete [] elements;
-}
+HashSet::~HashSet() { delete[] elements; }
 
-void HashSet :: add( int value){
-    if( !contains(value) ){
+void HashSet ::add(int value) {
+    if (!contains(value)) {
         HashNode* ptrNode = new HashNode(value);
         // gets the index in the array
         int bucket = hashCode(value);
         // inserts at the front
         ptrNode->next = elements[bucket];
         elements[bucket] = ptrNode;
-        //updates size
+        // updates size
         mySize++;
     }
 }
 
-void HashSet :: clear(){
-    delete [] elements;
-}
+void HashSet ::clear() { delete[] elements; }
 
-void HashSet :: remove(int value){
+void HashSet ::remove(int value) {
     int bucket = hashCode(value);
-    if(elements[bucket]->data == value){
+    if (elements[bucket]->data == value) {
         // remove first node
         elements[bucket] = elements[bucket]->next;
         mySize--;
         return;
-    }
-    else{
+    } else {
         // remove non-first node
         HashNode* currentNode = elements[bucket];
-        while(currentNode->next != nullptr){
-            if( currentNode->next->data == value){
+        while (currentNode->next != nullptr) {
+            if (currentNode->next->data == value) {
                 // remove the next node
-                HashNode* trash = currentNode->next; // found it! make a copy of it in order to free the memory later
+                HashNode* trash =
+                    currentNode
+                        ->next; // found it! make a copy of it in order to free the memory later
                 currentNode->next = currentNode->next->next;
                 mySize--;
                 delete trash; // frees memory
@@ -54,15 +50,14 @@ void HashSet :: remove(int value){
     return;
 }
 
-bool HashSet :: contains(int value) const {
+bool HashSet ::contains(int value) const {
     int bucket = hashCode(value);
     HashNode* currentNode = elements[bucket];
-    while(currentNode != nullptr){
-        if(currentNode->data == value){
+    while (currentNode != nullptr) {
+        if (currentNode->data == value) {
             // Node found
             return true;
-        }
-        else{
+        } else {
             // moves to the next node
             currentNode = currentNode->next;
         }
@@ -70,11 +65,11 @@ bool HashSet :: contains(int value) const {
     return false;
 }
 
-void HashSet :: printStructure() const {
-    for(int i = 0; i < capacity; i++){
+void HashSet ::printStructure() const {
+    for (int i = 0; i < capacity; i++) {
         cout << "[" << setw(2) << i << "]:";
         HashNode* current = elements[i];
-        while( current != nullptr ){
+        while (current != nullptr) {
             cout << " -> " << setw(2) << current->data;
             current = current->next;
         }
@@ -83,6 +78,6 @@ void HashSet :: printStructure() const {
     cout << "size = " << mySize << endl;
 }
 
-int HashSet :: hashCode(int value) const{
+int HashSet ::hashCode(int value) const {
     return value % capacity; // TODO: abs() causes an error
 }

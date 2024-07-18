@@ -1,10 +1,7 @@
 #ifndef BINARYTREE_H
 #define BINARYTREE_H
 
-#include <initializer_list>
-#include <string> // to_string
-
-#include "node.hpp"
+#include "../Node/node.hpp"
 
 /// Defines
 #define ptrNode     shared_ptr<Node> // HINT: You can use them! No need to repeat shared_ptr<Node>&!

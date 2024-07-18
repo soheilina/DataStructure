@@ -5,10 +5,6 @@
  * brief: This implementation is based on "CS 106B Lecture: Hashing" by Marty Stepp
  */
 
-#include <cmath>
-#include <iostream>
-#include <iomanip>
-
 using namespace std;
 
 //========================== Structs ==========================

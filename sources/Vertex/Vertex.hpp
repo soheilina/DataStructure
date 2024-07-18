@@ -1,14 +1,6 @@
 #ifndef VERTEX_H
 #define VERTEX_H
 
-#include <iostream>
-#include <list>
-
-enum class Color {
-    WHITE = 0,
-    GRAY = 1,
-    BLACK = 2,
-};
 class Vertex {
   public:
     Vertex();

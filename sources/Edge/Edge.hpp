@@ -1,7 +1,6 @@
 #pragma once
 
-#include "Vertex.hpp"
-#include <iostream>
+#include "../Vertex/Vertex.hpp"
 
 // BUG: Depricated! An edge is represened using list of neighbors in each Vertex.
 class Edge {

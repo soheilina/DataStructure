@@ -1,8 +1,12 @@
 BasedOnStyle: LLVM
 IndentWidth: 4
 ColumnLimit: 100
+
 AllowAllConstructorInitializersOnNextLine: true
 BreakConstructorInitializers: BeforeComma
+
 # Force pointers to the type for C++.
 DerivePointerAlignment: false
 PointerAlignment: Left
+
+SeparateDefinitionBlocks: Always
