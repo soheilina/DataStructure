@@ -1,6 +1,8 @@
 #ifndef _GRAPH_HPP
 #define _GRAPH_HPP
 
+#include "../pch.h" //NOTE: Not necessary when CMake is used. It includes pch to all cpp files of the specified target.
+
 #include "../Vertex/Vertex.hpp"
 
 class Graph {

@@ -13,8 +13,10 @@ void Graph::addVertex(std::shared_ptr<Vertex>& v) {
     }
 }
 
+/**
+ * @brief remove v from the neighbor list of its adjacent vertecies
+ */
 void Graph::removeVertex(std::shared_ptr<Vertex>& v) {
-    // remove v from the neighbor list of its adjacent vertecies
     for (const auto& vertex : m_vertices) {
         if (vertex->getID() != v->getID()) {
             vertex->removeNeighbor(v);
@@ -55,8 +57,10 @@ void Graph::addEdge(std::shared_ptr<Vertex>& v, std::shared_ptr<Vertex>& u, int 
     }
 }
 
+/**
+ * @brief Remove the connection from v1 to v2 (not vice versa)
+ */
 void Graph::removeEdge(std::shared_ptr<Vertex>& v1, std::shared_ptr<Vertex>& v2) {
-    // remove the connection from v1 to v2 (not vice versa)
     v1->removeNeighbor(v2);
 }
 
@@ -87,10 +91,10 @@ void Graph::clearGraph() {
     m_vertices.clear();
 }
 
+/**
+ * @brief: check if u is an adjacent vertex to v.
+ */
 bool Graph::isEdge(std::shared_ptr<Vertex>& v, std::shared_ptr<Vertex>& u) const {
-    /*
-        @brief: check if u is an adjacent vertex to v.
-    */
     auto result =
         std::find_if(v->getNeighbors().begin(), v->getNeighbors().end(), [&](const auto& n) {
             return (n.first.expired() ? false : n.first.lock()->getID() == u->getID());
@@ -109,9 +113,10 @@ bool Graph::isVertexByID(int id) const {
     return (result != m_vertices.end());
 }
 
+/**
+ * @brief: Construct BFS-Tree from vertex v and print the path from v to u
+ */
 void Graph::calculatePathByBreadthFirstSearch(Vertex* v, Vertex* u) {
-    /*@brief: Construct BFS-Tree from vertex v and print the path from v to u
-     */
     runBreadthFirstSearch(v);
     std::cout << "The path from source with id " << v->getID() << " to the vertex with id "
               << u->getID() << " is:" << std::endl;
@@ -204,10 +209,11 @@ void Graph::visitDFS(Vertex* u) {
     u->setColor(Color::BLACK);
 }
 
+/**
+ * @brief: perform topological sort using DFS.
+ * @cite See Cormen's book p.573
+ */
 void Graph::topological_sort() {
-    /*@brief: perform topological sort using DFS.
-              See Cormen's book p.573
-    */
     std::cout << "This is the topological sorted of vertecies" << std::endl;
     // TODO: CHECK THE CORRECTNESS
     std::list<std::shared_ptr<Vertex>> sorted_vertecies;

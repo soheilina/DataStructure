@@ -10,11 +10,11 @@ int Heap::getLeftChild(int i) const { return 2 * i + 1; }
 
 int Heap::getRightChild(int i) const { return 2 * i + 2; }
 
+/**
+ * @brief For MinHeap, it checks if val1 is lower than val2. For MaxHeap, it checks if val1 is
+ * greater than val2.
+ */
 bool Heap::isHigherInHeap(int val1, int val2) const {
-    /*
-    @brief: For MinHeap, it checks if val1 is lower than val2. For MaxHeap, it checks if val1 is
-    greater than val2.
-    */
     if (m_heap_type == HEAP_TYPE::MIN) {
         return (val1 < val2);
     } else {
@@ -22,18 +22,21 @@ bool Heap::isHigherInHeap(int val1, int val2) const {
     }
 }
 
+/**
+ * @brief insert the value to the back of heap and move it up to its correct position.
+ */
 void Heap::insert(int value) {
-    // insert back
     m_container.push_back(value);
-    int idx = m_container.size() - 1;
+    int idx = static_cast<int>(m_container.size()) - 1;
     bottom_up_heapify(idx);
 }
 
+/**
+ * @brief if the value in the index is smaller than its parent, it is moved up to its right
+          position.
+ * @param idx is the index of the target node.
+*/
 void Heap::bottom_up_heapify(int idx) {
-    /*
-    @brief: if the value in the index is smaller than its parent, it is moved up to its right
-    position.
-    */
     int parent_idx = getParent(idx);
     if (idx == parent_idx) {
         // root reached
@@ -46,6 +49,10 @@ void Heap::bottom_up_heapify(int idx) {
     }
 }
 
+/**
+ * @brief get the root of heap. Replace it with the last element and move it down to its right
+ * position.
+ */
 int Heap::top() {
     // save the root, put the last element in root, and shrink the heap by one.
     int top = m_container[0];
@@ -57,13 +64,13 @@ int Heap::top() {
     return top;
 }
 
+/**
+ * @brief If the node is smaller than its children, it is moved down till it is largers than its
+ * children or to a leaf.
+ * @param idx is the index of the target node.
+ * @note SEE DSA Cormen's book p. 165 max_heapify()
+ */
 void Heap::top_down_heapify(int idx) {
-    /*
-    @brief: If the node is smaller than its children, it is moved down till it is largers than its
-    children or to a leaf.
-    @input: idx is the index of the target node.
-    @note: SEE DSA Cormen's book p. 165 max_heapify()
-    */
     int largest = idx;
     int left_child_idx = getLeftChild(idx);
     int right_child_idx = getRightChild(idx);
@@ -95,7 +102,7 @@ uint16_t Heap::getSize() const { return m_container.size(); }
 
 void Heap::print() const {
     std::cout << "The Heap contains: ";
-    for (auto& e : m_container) {
+    for (int const& e : m_container) {
         std::cout << e << " ";
     }
     std::cout << std::endl;

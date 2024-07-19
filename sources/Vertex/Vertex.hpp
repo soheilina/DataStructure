@@ -1,5 +1,7 @@
-#ifndef VERTEX_H
-#define VERTEX_H
+#ifndef _VERTEX_HPP
+#define _VERTEX_HPP
+
+#include "../pch.h" //NOTE: Not necessary when CMake is used. It includes pch to all cpp files of the specified target.
 
 class Vertex {
   public:

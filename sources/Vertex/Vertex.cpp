@@ -16,8 +16,10 @@ void Vertex::setColor(Color c) { m_color = c; }
 
 void Vertex::setPredecessor(Vertex* predecessor) { m_predecessor = predecessor; }
 
+/**
+ * @brief: Set the finish time for a Depth First Search algorithm
+ */
 void Vertex::setFinishTime(u_int16_t time) {
-    /*@brief: Set the finish time for a Depth First Search algorithm*/
     m_DFS_finish_time = time;
 }
 
