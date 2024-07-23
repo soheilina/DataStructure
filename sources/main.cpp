@@ -7,6 +7,7 @@
 #include "Stack/Stack.hpp"
 #include "Tree/binaryTree.hpp"
 #include "Vertex/Vertex.hpp"
+#include "Sort/Sort.hpp"
 
 void testNode();
 void testBinaryTree();
@@ -20,6 +21,9 @@ void testHeap();
 using namespace std;
 
 int main() {
+    // set current time as seed for the random generator function
+    std::srand(std::time(nullptr));
+    
     std::cout << "To test any Design Pattern, please enter its corresponding number." << std::endl;
     std::cout << "1 to test Node\n"
               << "2 to test BinaryTree\n"
